@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+}
+
+/**************************************** SLIDER ****************************************/
+
+.slider {
+  display: flex;
+  max-width: 500px;
+  height: 350px;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgb(0, 0, 0.1);
+  margin: 20px;
+  overflow-x: scroll;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-active {
+  scroll-snap-type: x mandatory;
+}
+
+.slider img {
+  height: 100%;
+  width: 500px;
+  scroll-snap-align: center;
+}
+
+/****************************************************************************************/
+
+button {
+  border: none;
+  border-radius: 15px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button:focus{
+  outline: none;
+}

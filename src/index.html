@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Slider Native</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <div>
+        <h1>Slider Native</h1>
+
+        <section class="slider" :class="{'slider-active': slider}">
+
+          <img v-for="(cat, i) of cats" :key="i" :src="cat.url" :alt="i" />
+            <!-- <div class="slide" :style="`background-image: url('${cat.url}')`"></div> -->
+
+
+        </section>
+
+        <!-- <p>Haga click sobre la imagen y luego presione las teclas izquierda o derecha para notar la diferencia en el desplazamiento</p> -->
+
+        <button @click="slider = !slider">Slider {{ slider ? 'ON' : 'OFF' }}</button>
+      </div>
+    </div>
+
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+
+        data: {
+          cats: [],
+          slider: false
+        },
+
+        created() {
+          for (const i of Array(5)) {
+            fetch("https://api.thecatapi.com/v1/images/search?mime_types=%5B'image%2Fjpeg'%2C%20'image%2Fpng'%5D")
+              .then(resp => resp.json())
+              .then(json => this.cats.push(json[0]))
+          }
+        }
+      })
+    </script>
+  </body>
+
+</html>

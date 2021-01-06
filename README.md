@@ -2,4 +2,6 @@
 
 Slider creado con solo css
 
-[ver styles](./src/style.css)
+### [Ejemplo](https://edixonalberto.github.io/slider-native/)
+
+### [Revisar styles.css](./src/style.css)
